@@ -59,6 +59,13 @@ console.log("My dog " + dog.name + " is " + dog.age + " year old and likes to " 
   Console.log the object.
 */
 
+var kicks = {};
+kicks.brand = "New Balance";
+kicks.color = "cornflower blue";
+kicks.size = 8;
+kicks.price = "$"+99;
+kicks.buy = "Now I is a cool kid!"
+console.log(kicks);
 
 /* 
 
@@ -70,7 +77,11 @@ console.log("My dog " + dog.name + " is " + dog.age + " year old and likes to " 
 
   console.log the object
 */
-
+var plainBox = {}
+plainBox.color = "blue";
+plainBox.size = 10;
+plainBox.contents = [];
+console.log(plainBox);
 
 /*
 5. Declare a variable named `stockCar` and create the following properties (key-value pairs) to the object:
@@ -82,8 +93,15 @@ console.log("My dog " + dog.name + " is " + dog.age + " year old and likes to " 
 
     console.log the object
 */
+var stockCar = {
+    model: "Honda",
+    year: 2015,
+    automaticTransmission: false,
+    driver: null,
+    passenger: []
 
-
+}
+console.log(stockCar);
 /*
 
 6. Add new property inside a function
@@ -100,8 +118,15 @@ console.log("My dog " + dog.name + " is " + dog.age + " year old and likes to " 
    the return value in a variable named `completePerson`. Use `console.log` three times to print the entire object, just 
    the value at `name`, and just the value at `age`.
  */
+var plainPerson = {}
 
-
+function buildPerson(person, nameString, age) {
+    person.name = nameString;
+    person.age = age;
+    return person = plainPerson;
+}
+buildPerson(plainPerson,"bob",90);
+console.log(plainPerson);
 /*
 7. Display values of objects that are inside an array
    Declare a new variable named `arrayOfObjects` and set it to be [this array of objects
@@ -126,7 +151,46 @@ console.log("My dog " + dog.name + " is " + dog.age + " year old and likes to " 
             =====
             ...
  */
+var arrayOfObjects ={ 
+    id: 0,
+    date: "Monday Jan 25 2015 2:01 PM",
+    total: "279.38",
+    id: 1,
+    date: "Monday Jan 27 2015 11:31 AM",
+    total: "79.80",
+    id: 2,
+    date: "Monday Feb 1 2015 7:56 AM",
+    total: "15.62",
+    id: 3,
+    date: "Monday Feb 1 2015 9:43 AM",
+    total: "19.83",
+    id: 4,
+    date: "Monday Feb 1 2015 11:08 PM",
+    total: "56.69",
+    id: 5,
+    date: "Monday Feb 13 2015 10:22 AM",
+    total: "137.92",
+    id: 6,
+    date: "Monday Feb 14 2015 6:54 PM",
+    total: "938.65",
+    id: 7,
+    date: "Monday Feb 14 2015 7:17 PM",
+    total: "43.77",
+    id: 8,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "28.54",
+    id: 9,
+    date: "Monday Feb 14 2015 7:18 PM",
+    total: "194.33"
+  
+}
 
+function printOrders(orders) {
+    orders.id = id,
+    orders.purchaseDate = purchaseDate,
+    oreders.purchaseTotal = purchaseTotal
+}
+console.log(printOrders(arrayOfObjects));
 
 /*
 8. Addition with an object
