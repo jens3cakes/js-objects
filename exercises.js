@@ -151,44 +151,67 @@ console.log(plainPerson);
             =====
             ...
  */
-var arrayOfObjects ={ 
-    id: 0,
-    date: "Monday Jan 25 2015 2:01 PM",
-    total: "279.38",
-    id: 1,
-    date: "Monday Jan 27 2015 11:31 AM",
-    total: "79.80",
-    id: 2,
-    date: "Monday Feb 1 2015 7:56 AM",
-    total: "15.62",
-    id: 3,
-    date: "Monday Feb 1 2015 9:43 AM",
-    total: "19.83",
-    id: 4,
-    date: "Monday Feb 1 2015 11:08 PM",
-    total: "56.69",
-    id: 5,
-    date: "Monday Feb 13 2015 10:22 AM",
-    total: "137.92",
-    id: 6,
-    date: "Monday Feb 14 2015 6:54 PM",
-    total: "938.65",
-    id: 7,
-    date: "Monday Feb 14 2015 7:17 PM",
-    total: "43.77",
-    id: 8,
-    date: "Monday Feb 14 2015 7:18 PM",
-    total: "28.54",
-    id: 9,
-    date: "Monday Feb 14 2015 7:18 PM",
-    total: "194.33"
-  
-}
+var arrayOfObjects = [
+    {
+      id: 0,
+      date: "Monday Jan 25 2015 2:01 PM",
+      total: "279.38"
+    },
+    {
+      id: 1,
+      date: "Monday Jan 27 2015 11:31 AM",
+      total: "79.80"
+    },
+    {
+      id: 2,
+      date: "Monday Feb 1 2015 7:56 AM",
+      total: "15.62"
+    },
+    {
+      id: 3,
+      date: "Monday Feb 1 2015 9:43 AM",
+      total: "19.83"
+    },
+    {
+      id: 4,
+      date: "Monday Feb 1 2015 11:08 PM",
+      total: "56.69"
+    },
+    {
+      id: 5,
+      date: "Monday Feb 13 2015 10:22 AM",
+      total: "137.92"
+    },
+    {
+      id: 6,
+      date: "Monday Feb 14 2015 6:54 PM",
+      total: "938.65"
+    },
+    {
+      id: 7,
+      date: "Monday Feb 14 2015 7:17 PM",
+      total: "43.77"
+    },
+    {
+      id: 8,
+      date: "Monday Feb 14 2015 7:18 PM",
+      total: "28.54"
+    },
+    {
+      id: 9,
+      date: "Monday Feb 14 2015 7:18 PM",
+      total: "194.33"
+    }
+  ];
 
-function printOrders(orders) {
-    orders.id = id,
-    orders.purchaseDate = purchaseDate,
-    oreders.purchaseTotal = purchaseTotal
+    function printOrders(orders) {
+    for (var i = 0; i<arrayOfObjects.length; i++){
+        console.log("====");
+        console.log("id: " + orders[i].id);
+        console.log("purchase date: " + orders[i].date);
+        console.log("purchase total: " + orders[i].total);
+    }
+    
 }
 console.log(printOrders(arrayOfObjects));
 
@@ -204,6 +227,15 @@ console.log(printOrders(arrayOfObjects));
         Invoke your function and pass in your object, store the result to a variable named sumObjResult and use `console.log` 
         to inspect your results.
 */
+var sumObj = {a:2, b: 6, results: undefined };
+function objectAddition(obj) {
+    obj.results = obj.a + obj.b
+    return(obj);
+
+
+} 
+var sumObjResult = (objectAddition(sumObj));
+console.log(sumObjResult);
 
 
 /*
@@ -222,8 +254,12 @@ console.log(printOrders(arrayOfObjects));
         Invoke this function and pass in your object. Further test by changing the values of the object being passed in or 
         **create more** objects and invoke your function multiple times.
  */
+function printObj(obj) {
+    return obj.a  + "+" + obj.b + "=" + obj.results;
+}
 
 
+console.log(printObj(sumObj));
 /*
 10. Putting stuff in `plainBox`
         Declare a function named putInPlainBox and a single parameter which will be an object. Within this function, write a 
@@ -233,8 +269,15 @@ console.log(printOrders(arrayOfObjects));
         Invoke your function and pass in your object (which should be `plainBox`), store the result to a variable named 
         plainBoxResult and use `console.log` to inspect your results.
  */
-
-
+function putInPlainBox(obj) {
+    for (var i = 0; i <11; i++) {
+        var randomNum = Math.floor(Math.random()*10);
+        obj.contents.push(randomNum);
+    }
+return obj;
+}
+var plainBoxResult = putInPlainBox(plainBox);
+console.log(plainBoxResult);
 /*
 11. Detecting transmission
     Declare a function named detectingTransmission and a single parameter which will be an object. Within this function 
@@ -245,7 +288,16 @@ console.log(printOrders(arrayOfObjects));
 
     Invoke your function and pass in your stockCar object, store the result to a variable named isAutomaticTransmission and use `console.log` to inspect your results.
  */
-
+function detectingTransmission(obj) {
+    if (obj.i) {
+        automaticTransmission = true
+        console.log("Automatic transmission is extra")
+    }else{
+        automaticTransmission = false
+        console.log("Manual transmission is cheaper");
+    }
+};
+detectingTransmission(stockCar);
 
 /*
 12.  Who's driving this thing?!
@@ -258,8 +310,12 @@ console.log(printOrders(arrayOfObjects));
      Invoke your function and pass in your objects, store the result to a variable named stockCarWithDriver, and inspect 
       your results. Consider using `plainPerson` as your driver.
  */
-
-
+function addDriver(car, person) {
+    car.driver = person;
+    return car;
+}
+var stockCarWithDriver = (addDriver(stockCar,plainPerson.name))
+console.log(stockCarWithDriver);
 
 
 /*
@@ -294,3 +350,6 @@ console.log(printOrders(arrayOfObjects));
         'Marifel, age 19, is riding dirty!'
         'Victor, age 19, is riding dirty!'
  */
+var passengerList = ["Jon", "Jason", "Tony", "Joe", "Jesse", "Nigel", "Kelli", "Marifel", "Victor"];
+var passengerAges = [19, 12, 21, 22, 16, 9, 19, 20, 15];
+
